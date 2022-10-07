@@ -1,0 +1,61 @@
+@use '../../style/variables' as *;
+@use '../../style/breakpoint' as *;
+
+.footer{
+    width:100%;
+    padding: 95px 80px;
+    color:$white;
+    background-color: #161214;
+    
+    @include mobile{
+        padding: 60px 20px;
+    }
+    .select{
+        background-color: #362F33;
+        font-size: 16px;
+        color: $white;
+        padding: 4px 10px;
+        outline: none;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .title{
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+
+        @include mobile{
+            margin-top: 20px;
+        }
+    }
+
+    .item{
+        list-style: none;
+        opacity: .75;
+        font-size: 14px;
+        font-weight: 400;
+        margin: 10px 0;
+        transition: all 0.3 ease-in;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+    .icon{
+        display: inline-block;
+        text-align: center;
+        font-size: 20px;
+        padding: 7px 10px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+
+        @include mobile{
+            font-size: 14px;
+        }
+    }
+}

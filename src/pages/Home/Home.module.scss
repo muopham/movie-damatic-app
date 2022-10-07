@@ -1,0 +1,44 @@
+@use '../../style/variables' as *;
+@use '../../style/breakpoint' as *;
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 0 80px;
+    
+
+    @include tablet{
+        padding: 0 30px; 
+    }
+    @include mobile{
+        padding: 0 10px; 
+    }
+
+    .content{
+        margin-top: 80px;
+
+        .title{
+            display: flex;
+            justify-content:space-between;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+
+            select{
+                color:$white;
+                text-transform: uppercase;
+                font-weight: 600;
+                background-color: $gray;
+                outline: none;
+                padding: 4px 10px;
+                border-radius: 30px;
+
+                @include mobile{
+                    font-size: 14px;
+                    padding: 2px 6px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use '../../style/variables' as *;
+@use '../../style/breakpoint' as *;
+
+.helmet{
+    margin-top: $height-menu;
+    background-color: $black;
+    color:$white;
+    padding-bottom: 50px;
+    @include tablet{
+        margin-top: $height-menu-tablet;
+    }
+    @include mobile{
+        margin-top: $height-menu-mobile; 
+    }
+    
+}
