@@ -82,46 +82,38 @@ const MovieGrid = (props) => {
   };
   return (
     <>
-      {loading ? (
-        <div className={cx("loading")}>
-          <Spinner color="info">Loading...</Spinner>
+      <div className={cx("search")}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={keyWordSearch}
+          onChange={(e) => {
+            setKeyWordSearch(e.target.value);
+          }}
+        />
+        <div className={cx("search__btn")}>
+          <i className={cx("bx bx-search")}></i>
         </div>
-      ) : (
-        <>
-          <div className={cx("search")}>
-            <input
-              type="text"
-              placeholder="Search"
-              value={keyWordSearch}
-              onChange={(e) => {
-                setKeyWordSearch(e.target.value);
-              }}
-            />
-            <div className={cx("search__btn")}>
-              <i className={cx("bx bx-search")}></i>
-            </div>
-          </div>
+      </div>
 
-          <Row lg="6" md="4" xs="2">
-            {items.map((item, index) => (
-              <Col key={index}>
-                <MovieItem category={props.category} data={item} />
-              </Col>
-            ))}
-          </Row>
-          {page < totalPage ? (
-            <div className={cx("load-more")}>
-              {loading ? (
-                <Spinner color="info">Loading...</Spinner>
-              ) : (
-                <Button primary icon="bx bx-chevron-down" onClick={loadMore}>
-                  Load more
-                </Button>
-              )}
-            </div>
-          ) : null}
-        </>
-      )}
+      <Row lg="6" md="4" xs="2">
+        {items.map((item, index) => (
+          <Col key={index}>
+            <MovieItem category={props.category} data={item} />
+          </Col>
+        ))}
+      </Row>
+      {page < totalPage ? (
+        <div className={cx("load-more")}>
+          {loading ? (
+            <Spinner color="info">Loading...</Spinner>
+          ) : (
+            <Button primary icon="bx bx-chevron-down" onClick={loadMore}>
+              Load more
+            </Button>
+          )}
+        </div>
+      ) : null}
     </>
   );
 };
