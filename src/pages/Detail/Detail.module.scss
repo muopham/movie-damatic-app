@@ -172,20 +172,6 @@
                     line-height: 1;                   
                 }
             }
-    
-            .button{ 
-                display: flex;
-                gap: 20px;
-    
-                &-second{
-                    background-color: $gray;
-                }
-    
-                @include mobile{
-                    display: none;
-                }
-            }
-
             .description{
                 margin-top: 20px;
                 display: flex;

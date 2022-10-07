@@ -4,16 +4,18 @@ import classNames from "classnames/bind";
 import styles from "./Detail.module.scss";
 
 import Helmet from "../../components/Helmet/Helmet";
-import apiConfig from "../../api/apiConfig";
-import Button from "../../components/Button/Button";
-import tmdbApi from "../../api/tmdbApi";
 import VideoList from "./VideoList";
+import MovieList from "../../components/MovieList/MovieList";
+import apiConfig from "../../api/apiConfig";
+import tmdbApi from "../../api/tmdbApi";
 
 const cx = classNames.bind(styles);
 
 const Detail = () => {
   const { category, id } = useParams();
   const [item, setItem] = useState(null);
+
+  let type = "top_rated";
 
   // get detail movie
   useEffect(() => {
@@ -23,8 +25,7 @@ const Detail = () => {
       window.scrollTo(0, 0);
     };
     getDetail();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [category, id]);
 
   return (
     <>
@@ -41,6 +42,12 @@ const Detail = () => {
                 <div className={cx("detail__title")}>Trailer</div>
                 <div className={cx("detail__video")}>
                   <VideoList id={item.id} category={category} />
+                </div>
+              </div>
+              <div className={cx("detail__container")}>
+                <div className={cx("detail__title")}>MORE LIKE THIS</div>
+                <div className={cx("")}>
+                  <MovieList type={type} category={category} />
                 </div>
               </div>
             </div>
@@ -87,14 +94,7 @@ const DetailItem = (props) => {
               <span key={index}>{i.name}, </span>
             ))}
           </div>
-          <div className={cx("button")}>
-            <Button primary icon="bx bxs-right-arrow">
-              Watch
-            </Button>
-            <Button icon="bx bx-plus-medical" className={cx("button-second")}>
-              My list
-            </Button>
-          </div>
+
           <div className={cx("description")}>
             <div className={cx("primary")}>IMDb</div>
             <div className={cx("outline")}>U/A</div>
